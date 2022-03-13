@@ -27,6 +27,7 @@ export function sleep(ms: number) {
 
 export const App: React.FC = () => {
   const [socket, setSocket] = useState<Socket>();
+  const [connected, setConnected] = useState<boolean>(false);
   const [status, setStatus] = useState<boolean>();
   useEffect(() => {
     setSocket(
@@ -35,16 +36,26 @@ export const App: React.FC = () => {
         transports: ['websocket'],
       }),
     );
-  }, [setSocket]);
+  }, []);
 
   socket &&
     socket.on('status', (data) => {
       setStatus(data);
     });
 
+  socket &&
+    socket.on('connect', () => {
+      setConnected(true);
+    });
+
+  socket &&
+    socket.on('disconnect', () => {
+      setConnected(false);
+    });
+
   return (
     <RootEl isAllGood={status ?? false}>
-      {socket?.connected ? (
+      {connected && socket ? (
         <>
           <p>Connected: {status ? 'All good' : 'All broken'}</p>
           <button onClick={() => socket.emit('status', !status)}>
