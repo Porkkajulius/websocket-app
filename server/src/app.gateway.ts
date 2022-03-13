@@ -50,4 +50,4 @@ const emitStatus = (socket: Socket) => {
   socket.emit('status', status);
 };
 
-const tryEmitStatus = debounce(emitStatus, 500);
+const tryEmitStatus = debounce(emitStatus, 200);
