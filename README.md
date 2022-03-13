@@ -1,8 +1,8 @@
-# Status App:
+# Websocket App:
 
 ## Overview
 
-Simple websocket application
+Simple websocket application for monitoring is everything good status
 
 Code structure
 
@@ -21,12 +21,14 @@ Nice to have
 ## Run
 
 ### With NPM
+
 - `npm install` Install node_modules
 - `npm run:start` Starts server and client
 - `npm run:start:server` Starts server
 - `npm run:start:client` Starts client
 
 ### With Docker
+
 server:
 `docker-compose up`
 client:
