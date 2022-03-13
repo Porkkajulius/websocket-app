@@ -21,10 +21,6 @@ const RootEl = styled.div<RootEl>`
   }
 `;
 
-export function sleep(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
-}
-
 export const App: React.FC = () => {
   const [socket, setSocket] = useState<Socket>();
   const [connected, setConnected] = useState<boolean>(false);
