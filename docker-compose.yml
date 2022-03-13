@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+  server:
+    build:
+      context: ./
+      dockerfile: Dockerfile.server
+    ports:
+      - '3000:3000'
+    volumes:
+      - type: bind
+        source: ./server
+        target: /opt/build/server
+        consistency: delegated
+      - type: bind
+        source: ./node_modules
+        target: /opt/build/node_modules
+        consistency: delegated
+      - type: bind
+        source: ./tsconfig.build.json
+        target: /opt/build/tsconfig.build.json
+        consistency: delegated
