@@ -20,12 +20,14 @@ Nice to have
 
 ## Run
 
-With NPM
-`npm install` Install node_modules
-`npm run:start` Starts server and client
-`npm run:start:server` Starts server
-`npm run:start:client` Starts client
+### With NPM
+- `npm install` Install node_modules
+- `npm run:start` Starts server and client
+- `npm run:start:server` Starts server
+- `npm run:start:client` Starts client
 
-With Docker
+### With Docker
 server:
 `docker-compose up`
+client:
+Not created use `npm start:client`
