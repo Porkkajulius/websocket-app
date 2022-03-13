@@ -37,8 +37,6 @@ export const App: React.FC = () => {
     );
   }, [setSocket]);
 
-  console.log('connected', socket?.connected);
-
   socket &&
     socket.on('status', (data) => {
       setStatus(data);
