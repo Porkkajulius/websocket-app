@@ -31,5 +31,6 @@ Nice to have
 
 server:
 `docker-compose up`
+
 client:
-Not created use `npm start:client`
+Not created use `npm run:start:client`
