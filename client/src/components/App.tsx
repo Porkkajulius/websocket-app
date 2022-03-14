@@ -34,23 +34,20 @@ export const App: React.FC = () => {
     );
   }, []);
 
-  socket &&
-    socket.on('status', (data) => {
-      setStatus(data);
-    });
+  socket?.on('status', (data) => {
+    setStatus(data);
+  });
 
-  socket &&
-    socket.on('connect', () => {
-      setConnected(true);
-    });
+  socket?.on('connect', () => {
+    setConnected(true);
+  });
 
-  socket &&
-    socket.on('disconnect', () => {
-      setConnected(false);
-    });
+  socket?.on('disconnect', () => {
+    setConnected(false);
+  });
 
   return (
-    <RootEl isAllGood={status ?? false}>
+    <RootEl isAllGood={(connected && status) ?? false}>
       {connected && socket ? (
         <>
           <p>Connected: {status ? 'All good' : 'All broken'}</p>
